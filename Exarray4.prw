@@ -14,10 +14,6 @@ aAluno[1] := {"Mano", {1,2,3,4}}
 aAluno[2] := {"Mano1", {1,2,3,4}}
 aAluno[3] := {"Mano2", {1,2,3,4}}
 
-Alert("Nome do Aluno: " + aAluno[2,1] +;
-    " Nota1 do Aluno: " + cValToChar(aAluno[2][1,1])+;
-    " Nota2 do Aluno: " + cValToChar(aAluno[2][1,2])+;
-    " Nota3 do Aluno: " + cValToChar(aAluno[2][1,3])+;
-    " Nota4 do Aluno: " + cValToChar(aAluno[2][1,4]))
+varInfo("alunos",aAluno[2])
 
 Return
