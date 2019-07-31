@@ -5,7 +5,6 @@ Local oBrowse := FWMBrowse():New()
 
 oBrowse:SetAlias("ZA0")
 oBrowse:SetMenuDef('ios01')
-
 oBrowse:Activate()
 
 Return
@@ -22,12 +21,30 @@ Return FWMVCMenu('ios01')
 Static Function ModelDef()
 Local oModel := MPFormModel():New("Qualquercoisa")
 Local oStruZA0 := FWFormStruct(1 , "ZA0")
+Local bPos := {|oModelField| PosVlAutor(oModelField)}
+//Form Field (Campo do Formulário)
 
-oModel:addFields("ZA0MASTER",/* OWNER */, oStruZA0)
+
+oModel:addFields("ZA0MASTER",/* OWNER */, oStruZA0, /* */,bPos)
 
 Return oModel
 
+/*Static Function PosVlAutor(oModelField)
+Local lTudoOk := .T.    //Sou falso mesmo
+Local dFalec := oModelField:GetValue("ZA0_DTAFAL")
+//PARA ATRIBUIR VALOR SetValue(Pesquisar : Encapsulamento)
+Local cNome := oModelField:GetValue("ZA0_NOME")
 
+If dFalec > Date()
+    lTudoOk := .F.
+    Help(,,'HELP' ,,'NÃO ADIVINHE O FUTURO',1,0,,,,,, {'COLOQUE UMA DATA VÁLIDA'+ dtoc(date())})
+
+
+ElseIf 'RICARDO' $ UPPER(cNome) .Or. Empty(cNome)
+    lTudoOk := .F.
+    HELP(,,'HELP' ,,'Ele não pode estar aqui!!!',1,0,,,,,, {'Coloque um Ricardo Válido'})
+Endif*/
+Return
 
 Static Function ViewDef() //0.0
 Local oView := FWFormView():New()
